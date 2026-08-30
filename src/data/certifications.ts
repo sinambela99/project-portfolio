@@ -34,4 +34,11 @@ export const certifications = [
     status: "Tersedia",
     href: "/Credentials - IanPaulusSinambela-9507 _ SC-300.pdf",
   },
+  {
+    name: "Professional Cloud DevOps Engineer",
+    exam: "Google Cloud",
+    issuer: "Google Cloud Certified",
+    status: "Tersedia",
+    href: "/ProfessionalCloudDevOpsEngineer20260830-20-zfv4rm.pdf",
+  },
 ];

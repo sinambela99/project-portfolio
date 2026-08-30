@@ -19,7 +19,7 @@ Kontak yang dikonfigurasi:
 - Halaman detail project di `/projects/[slug]`.
 - Halaman DevSecOps interaktif di `/devsecops`.
 - Halaman arsitektur interaktif di `/architecture`.
-- Link CV dan 5 file sertifikasi yang tersedia di repository.
+- Link CV dan 6 file sertifikasi yang tersedia di repository.
 - Metadata SEO, sitemap, robots, structured data, dan security headers.
 
 ## Teknologi
