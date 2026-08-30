@@ -2,12 +2,12 @@
 
 :root {
   color-scheme: dark;
-  --background: #0a0b0d;
-  --foreground: #e7e5e4;
+  --background: #171819;
+  --foreground: #e4e4e7;
   --muted: #a8a29e;
-  --panel: #111214;
+  --panel: #1d1e20;
   --line: rgba(255, 255, 255, 0.1);
-  --accent: #b8c0cc;
+  --accent: #c9ced6;
 }
 
 * {
@@ -21,7 +21,7 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
-  background: linear-gradient(180deg, #090a0c 0%, #0d0e11 48%, #08090b 100%);
+  background: linear-gradient(180deg, #1b1c1e 0%, #171819 45%, #141516 100%);
   color: var(--foreground);
   font-family: "Aptos", "Segoe UI", sans-serif;
 }
