@@ -4,7 +4,7 @@ Website portfolio pribadi untuk DevOps Engineer dengan fokus pada Azure, Kuberne
 
 ## Overview
 
-Website ini dibuat dengan Next.js App Router, TypeScript strict mode, dan Tailwind CSS. Konten utama dipisahkan ke folder `src/data` agar project, skills, pengalaman, dan sertifikasi mudah diperbarui.
+Website ini dibuat dengan Next.js App Router, TypeScript strict mode, dan Tailwind CSS. Output production dibuat sebagai static export agar ringan untuk VPS kecil.
 
 Kontak yang dikonfigurasi:
 
@@ -69,11 +69,13 @@ npm run lint
 npm run build
 ```
 
+Hasil static export berada di folder `out/`.
+
 ## Docker
 
 ```bash
 docker build -t ian-sinambela-portfolio .
-docker run -p 3000:3000 ian-sinambela-portfolio
+docker run -p 8080:8080 ian-sinambela-portfolio
 ```
 
 ## CI/CD
@@ -84,7 +86,7 @@ Contoh pipeline tersedia di `.github/workflows/ci.yml` dengan tahapan checkout, 
 
 - Tidak menyimpan secret di source code.
 - External link memakai `noreferrer noopener` ketika URL sudah dikonfigurasi.
-- Security headers disiapkan di `next.config.ts`.
+- Security headers disiapkan di `nginx.conf` untuk deployment static/Docker.
 - Pipeline contoh memblokir critical/high vulnerability melalui Trivy.
 
 ## Deployment
