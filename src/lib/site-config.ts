@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Ian Sinambela",
   role: "DevOps Engineer",
   focus: "Cloud Infrastructure • Kubernetes • DevSecOps",
-  url: "https://sinambelainan.com",
+  url: "https://sinambelaian.com",
   email: "mailto:sinambelaian@gmail.com",
   github: "https://github.com/sinambela99/project-portfolio",
   linkedin: "https://www.linkedin.com/in/ian-paulus-sinambela/",

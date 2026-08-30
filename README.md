@@ -91,7 +91,7 @@ Contoh pipeline tersedia di `.github/workflows/ci.yml` dengan tahapan checkout, 
 
 ## Deployment
 
-Domain target dikonfigurasi sebagai `https://sinambelainan.com`. Perbarui konfigurasi DNS dan platform hosting sesuai environment produksi.
+Domain target dikonfigurasi sebagai `https://sinambelaian.com`. Perbarui konfigurasi DNS dan platform hosting sesuai environment produksi.
 
 ## Future Improvement
 
