@@ -25,38 +25,38 @@ export function DevSecOpsSection() {
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-      <div className="overflow-x-auto rounded-lg border border-white/10 bg-slate-950/60 p-5">
+      <div className="overflow-x-auto rounded border border-zinc-800 bg-[#111214] p-5">
         <div className="grid min-w-[720px] grid-cols-4 gap-3">
           {stages.map((stage) => (
-            <button key={stage.name} type="button" onClick={() => setSelected(stage)} className={cn("rounded-md border p-4 text-left transition focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300", selected.name === stage.name ? "border-sky-300/50 bg-sky-300/10" : "border-white/10 bg-white/[0.03] hover:border-white/20")}> 
-              <span className="font-mono text-xs text-slate-400">{stage.tool}</span>
-              <span className="mt-2 block text-sm font-semibold text-slate-100">{stage.name}</span>
+            <button key={stage.name} type="button" onClick={() => setSelected(stage)} className={cn("rounded border p-4 text-left transition focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300", selected.name === stage.name ? "border-zinc-500 bg-white/[0.06]" : "border-zinc-800 bg-black/15 hover:border-zinc-600")}> 
+              <span className="font-mono text-xs text-zinc-500">{stage.tool}</span>
+              <span className="mt-2 block text-sm font-semibold text-zinc-200">{stage.name}</span>
             </button>
           ))}
         </div>
       </div>
-      <aside className="rounded-lg border border-white/10 bg-[#081421] p-6">
-        <p className="font-mono text-sm uppercase tracking-[0.18em] text-sky-200">{selected.tool}</p>
-        <h3 className="mt-3 text-2xl font-semibold text-slate-50">{selected.name}</h3>
+      <aside className="rounded border border-zinc-800 bg-[#111214] p-6">
+        <p className="font-mono text-xs uppercase tracking-[0.1em] text-zinc-500">{selected.tool}</p>
+        <h3 className="mt-3 text-2xl font-semibold text-zinc-100">{selected.name}</h3>
         <dl className="mt-6 grid gap-4 text-sm leading-7">
-          <div><dt className="text-slate-500">Tujuan</dt><dd className="text-slate-200">{selected.goal}</dd></div>
-          <div><dt className="text-slate-500">Apa yang diperiksa</dt><dd className="text-slate-200">{selected.checks}</dd></div>
-          <div><dt className="text-slate-500">Dampak terhadap pipeline</dt><dd className="text-slate-200">{selected.impact}</dd></div>
+          <div><dt className="text-zinc-500">Tujuan</dt><dd className="text-zinc-300">{selected.goal}</dd></div>
+          <div><dt className="text-zinc-500">Apa yang diperiksa</dt><dd className="text-zinc-300">{selected.checks}</dd></div>
+          <div><dt className="text-zinc-500">Dampak terhadap pipeline</dt><dd className="text-zinc-300">{selected.impact}</dd></div>
         </dl>
-        <div className="mt-8 rounded-md border border-white/10 bg-slate-950/70 p-4">
+        <div className="mt-8 rounded border border-zinc-800 bg-black/20 p-4">
           <div className="flex items-center justify-between gap-4">
-            <p className="font-mono text-sm text-slate-100">SECURITY GATE</p>
-            <button type="button" onClick={() => setGatePassed((value) => !value)} className="rounded-md border border-white/10 px-3 py-2 text-xs text-slate-200 hover:bg-white/5">Ubah state</button>
+            <p className="font-mono text-sm text-zinc-200">SECURITY GATE</p>
+            <button type="button" onClick={() => setGatePassed((value) => !value)} className="rounded border border-zinc-800 px-3 py-2 text-xs text-zinc-300 hover:bg-white/5">Ubah state</button>
           </div>
           <div className="mt-4 grid gap-3">
             {["SAST", "Secret Detection", "Dependency Scan", "Container Scan", "IaC Scan"].map((gate) => (
-              <div key={gate} className="flex items-center justify-between text-sm text-slate-300"><span>{gate}</span><span className="flex items-center gap-2 text-emerald-200"><CheckCircle2 size={16} aria-hidden />LULUS</span></div>
+              <div key={gate} className="flex items-center justify-between text-sm text-zinc-400"><span>{gate}</span><span className="flex items-center gap-2 text-emerald-300"><CheckCircle2 size={16} aria-hidden />LULUS</span></div>
             ))}
             <div className="border-t border-white/10 pt-3 text-sm">
-              {gatePassed ? <span className="flex items-center gap-2 text-emerald-200"><CheckCircle2 size={17} aria-hidden />Deployment DIIZINKAN</span> : <span className="flex items-center gap-2 text-rose-200"><XCircle size={17} aria-hidden />Deployment DIBLOKIR</span>}
+              {gatePassed ? <span className="flex items-center gap-2 text-emerald-300"><CheckCircle2 size={17} aria-hidden />Deployment DIIZINKAN</span> : <span className="flex items-center gap-2 text-rose-300"><XCircle size={17} aria-hidden />Deployment DIBLOKIR</span>}
             </div>
           </div>
-          <p className="mt-4 flex gap-2 text-xs leading-6 text-slate-500"><ShieldAlert size={16} aria-hidden />Visualisasi portfolio, bukan hasil pipeline real-time.</p>
+          <p className="mt-4 flex gap-2 text-xs leading-6 text-zinc-500"><ShieldAlert size={16} aria-hidden />Visualisasi portfolio, bukan hasil pipeline real-time.</p>
         </div>
       </aside>
     </div>
