@@ -1,0 +1,64 @@
+name: Portfolio CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-security-gate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install Dependency
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: echo "Tidak ada test otomatis yang dikonfigurasi saat ini."
+
+      - name: Build
+        run: npm run build
+
+      - name: Secret Scan - Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Container Build
+        run: docker build -t portfolio:${{ github.sha }} .
+
+      - name: Container Scan - Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: portfolio:${{ github.sha }}
+          severity: CRITICAL,HIGH
+          exit-code: "1"
+          ignore-unfixed: true
+
+      - name: IaC Scan - Checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: .
+          quiet: true
+          soft_fail: false
+
+      - name: Deploy
+        run: echo "Deployment diaktifkan setelah security gate lulus."
